@@ -13,5 +13,11 @@ int main()
     {
         num[i] = std::rand() % 50;
     }
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        std::cout << num[i] << " ";
+    }
+
     return 0;
 }
