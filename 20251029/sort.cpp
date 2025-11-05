@@ -21,6 +21,6 @@ int main()
     {
         std::cout << num[i] << " ";
     }
-
+    std::cout << std::endl;
     return 0;                           //終了
 }
