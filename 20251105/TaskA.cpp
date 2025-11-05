@@ -1,23 +1,11 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 
 int main()
 {
-    const int SIZE = 10;
-    int num[SIZE];
-    
-    std::srand(std::time(nullptr));
-
-    for (int i = 0; i < SIZE; i++)
+    for (int i = 1;i < 10; i++)
     {
-        num[i] = std::rand() % 50;
+        std::cout << i << "\n";
     }
-
-    for (int i = 0; i < SIZE; i++)
-    {
-        std::cout << num[i] << " ";
-    }
-
+    std::cout << std::endl;
     return 0;
 }
