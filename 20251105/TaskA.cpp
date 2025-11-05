@@ -13,4 +13,5 @@ int main()
     {
         num[i] = std::rand() % 50;
     }
+    return 0;
 }
