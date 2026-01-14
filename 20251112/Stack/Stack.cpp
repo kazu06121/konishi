@@ -6,32 +6,26 @@ int main()
 {
     std::srand((unsigned int)std::time(nullptr));
 
-    char data[26];      //A~Zの変数
-    int  num[26];       //変数に入る数
+    const int DATASIZE = 26;
+    char data[DATASIZE];      //A~Zの変数
 
     int count = 0;        //スタックのサイズ
     int top = 0;          //次にPushするインデックス
 
     char currentChar = 'A'; //インデックス
-    int frame = 0;          //currentframe
-    int maxFrame = 100;     //実行回数
-
-    while (frame < maxFrame)
+    for (char c = 'A'; c <= 'Z'; ++c)
     {
-        std::cout << "フレーム " << frame + 1 << "\n";
+        std::cout << "フレーム " << "\n";
 
-        int rnd = std::rand() % 100;
+        data[top] = currentChar;   //Push
 
-        data[top] = currentChar;    
-        num[top]  = rnd;            //Push
-
-        std::cout << "Push : " << currentChar << "  数=" << rnd << "  index=" << top + 1 << "\n";
+        std::cout << "Push : " << currentChar << "\n";
 
         // topを進める（循環）
         top = (top + 1) % 26;
 
         // サイズ更新
-        if (count < 26)
+        if (count < DATASIZE)
         {
             count++;
         }
@@ -44,9 +38,9 @@ int main()
 
         if (count > 0 && std::rand() % 2 == 0)
         {
-            int popIndex = (top - 1 + 26) % 26;
+            int popIndex = (top - 1 + DATASIZE) % DATASIZE;
 
-            std::cout << "Pop : " << data[popIndex] << "  数=" << num[popIndex] << "\n";
+            std::cout << "Pop : " << data[popIndex] << "\n";
 
             // topを戻す
             top = popIndex;
@@ -56,11 +50,10 @@ int main()
         std::cout << "DATA : "; //スタックの一覧
         for (int i = 0; i < count; i++)
         {
-            std::cout << "[" << data[i] << ":" << num[i] << "] ";
+            std::cout << "[" << data[i] <<"] ";
         }
         std::cout << "\n\n";
 
-        frame++;
     }
 
     return 0;
